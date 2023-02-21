@@ -1,0 +1,13 @@
+@import "theme-colors";
+
+.app {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-end;
+  width: 423px;
+  height: 800px;
+  border-radius: 40px;
+  background: var(--app_background);
+}

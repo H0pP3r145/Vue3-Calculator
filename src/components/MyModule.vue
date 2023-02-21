@@ -1,13 +1,9 @@
 <template>
     <div class="app">
-        <div class="change-theme">
-            <div class="night-theme">
-                <img class="img-night" src="@/assets/night-theme.png" alt="night-theme">
-            </div>
-            <div class="light-theme">
-                <img src="@/assets/light-theme.png" alt="light-theme">
-            </div>
-        </div>
+        <label class="switch">
+            <input type="checkbox" class="theme-switch" v-model="darkMode">
+            <span class="slider round"></span>
+        </label>
         <my-screen :result_calc="result_calc" :expression="getExpression"></my-screen>
         <my-keyboard/>
     </div>
@@ -19,11 +15,14 @@ import MyKeyboard from "@/components/Keyboard";
 import {mapState, mapGetters} from "vuex";
 
 export default {
+    name: "MyModule",
     components: {
         MyKeyboard,
         MyScreen
     },
-    name: "MyModule",
+    data: () => ({
+        darkMode: false
+    }),
     computed: {
         ...mapState({
             result_calc: state => state.store.result_calc
@@ -31,52 +30,44 @@ export default {
         ...mapGetters({
             getExpression: "store/getExpression"
         })
+    },
+    mounted() {
+        // set page title
+        document.title = 'Multiple Themes in Vue.js';
+
+        // set 'app-background' class to body tag
+        let bodyElement = document.body;
+        bodyElement.classList.add("app-background");
+
+        // check for active theme
+        let htmlElement = document.documentElement;
+        let theme = localStorage.getItem("theme");
+
+        if (theme === 'dark') {
+            htmlElement.setAttribute('theme', 'dark')
+            this.darkMode = true
+        } else {
+            htmlElement.setAttribute('theme', 'light');
+            this.darkMode = false
+        }
+    },
+    watch: {
+        darkMode: function () {
+            let htmlElement = document.documentElement;
+            if (this.darkMode) {
+                localStorage.setItem("theme", 'dark');
+                htmlElement.setAttribute('theme', 'dark');
+            } else {
+                localStorage.setItem("theme", 'light');
+                htmlElement.setAttribute('theme', 'light');
+            }
+        }
     }
 }
 </script>
 
 <style scoped>
 .app {
-    display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: flex-end;
-    width: 423px;
-    height: 800px;
-    border-radius: 40px;
-    background: linear-gradient(to bottom right, #373737, #252628, #000309);
-}
-
-.change-theme {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 122px;
-    height: 44px;
-    background-color: #1B6A9C;
-    border-radius: 40px;
-    margin-bottom: 141px;
-}
-
-.night-theme {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    width: 60%;
-    height: 100%;
-    border-radius: 40px;
-    background-color: #003661;
-    box-shadow: -2px 0 6px rgba(0, 0, 0, 15%);
-}
-
-.light-theme img {
-    margin-top: 7px;
-    margin-right: 3px;
-}
-
-.img-night {
-    width: 29px;
-    height: 29px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 </style>

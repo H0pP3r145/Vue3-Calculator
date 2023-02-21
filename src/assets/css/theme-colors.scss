@@ -1,0 +1,39 @@
+:root {
+  --app_background: linear-gradient(135deg, #fefefe, #f9f9f9, #f3f3f3, #e5e5e5);
+
+  //keyboard
+  --keyboard-background-image: url("@/assets/images/background-image/light-background.png");
+  --btn-color: #373737;
+  --btn-active--active: rgba(255, 255, 255, 0.2);
+  --btn-hover: rgba(255, 255, 255, 0.4);
+  --btn--active: rgba(255, 255, 255, 0.7);
+  --btn-background-color: rgba(255, 255, 255, 0.3);
+  --upper-background: rgba(255, 255, 255, 0.3);
+  --right-background: rgba(255, 255, 255, 0.3);
+
+  --keyboard-box-shadow:   0 -20px 20px rgba(0, 0, 0, 0.1);
+
+  //screen
+  --screen-font-color: #373737;
+  --actions-color: #37373750;
+}
+
+
+[theme="dark"] {
+  --app_background: linear-gradient(to bottom right, #373737, #252628, #000309);
+
+  //keyboard
+  --keyboard-background-image: url("@/assets/images/background-image/dark-background.png");
+  --btn-color: #fff;
+  --btn-active--active: rgba(0, 0, 0, 0.7);
+  --btn-hover: rgba(0, 0, 0, 0.4);
+  --btn--active: rgba(0, 0, 0, 0.7);
+  --btn-background-color: rgba(0, 0, 0, 0.3);
+  --upper-background: rgba(0, 0, 0, 0.3);
+  --right-background: rgba(0, 0, 0, 0.3);
+  --keyboard-box-shadow: 0 -20px 15px rgba(0, 0, 0, 0.2);
+  //screen
+  --screen-font-color: #fff;
+  --actions-color: #fbfbfb50;
+}
+

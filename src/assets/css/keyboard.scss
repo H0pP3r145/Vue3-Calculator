@@ -1,0 +1,82 @@
+@import 'theme-colors';
+
+.keyboard {
+  display: flex;
+  width: 100%;
+  height: 60%;
+  border-radius: 40px;
+  background-image: var(--keyboard-background-image);
+  background-position: center;
+  background-size: 600px;
+  box-shadow: var(--keyboard-box-shadow)
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 355px;
+  height: 430px;
+  margin: auto;
+}
+
+.numbers {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 260px;
+  height: 340px;
+  bottom: 0;
+}
+
+.upper-symbols {
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+  height: 70px;
+  border-radius: 40px;
+  background-color: var(--upper-background);
+  box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.right-symbols {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70px;
+  height: 430px;
+  border-radius: 40px;
+  background-color: var(--right-background);
+  box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  color: var(--btn-color);
+  font-size: 150%;
+  background-color: var(--btn-background-color);
+  border: 0;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0%);
+}
+
+.active:active {
+  background-color: var(--btn-active--active);
+  box-shadow: 1px 3px 15px rgba(0, 0, 0, 5%);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover)
+}
+
+.btn:active {
+  background-color: var(--btn--active);
+  box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.05);
+}
