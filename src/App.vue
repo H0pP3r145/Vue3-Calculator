@@ -8,7 +8,10 @@
 import MyModule from "@/components/MyModule";
 
 export default {
-    components: {MyModule}
+    components: {MyModule},
+    mounted() {
+        document.title = 'Calculator on Vue 3';
+    }
 }
 </script>
 <style>
